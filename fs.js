@@ -37,16 +37,18 @@ function skaitom(path) {
 
 // istrink('./delete.txt')
 
-if (fs.existsSync('./delete.txt')) {
-  console.log('file exists');
-  fs.unlink('./delete.txt', (err) => {
-    if (err) {
-      // ivyko klaida
-      console.log(err.message);
-      return;
-    }
-    console.log('file deleted successfuly');
-  });
-} else {
-  console.log('file not found');
+function istrink(path) {
+  if (fs.existsSync(path)) {
+    console.log('file exists');
+    fs.unlink(path, (err) => {
+      if (err) {
+        // ivyko klaida
+        console.log(err.message);
+        return;
+      }
+      console.log(path, 'file deleted successfuly');
+    });
+  } else {
+    console.log('file not found');
+  }
 }
